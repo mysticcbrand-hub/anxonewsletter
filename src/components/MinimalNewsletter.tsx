@@ -269,25 +269,35 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
       const fetchUrl = `${supabaseUrl}/functions/v1/subscribe`;
       const fetchBody = JSON.stringify({ email: trimmedEmail, name: sanitizedName });
       
-      console.log('[DEBUG] Fetch URL:', fetchUrl);
-      console.log('[DEBUG] Fetch body:', fetchBody);
-      console.log('[DEBUG] Auth header exists:', !!supabaseKey);
+      console.log('[DEBUG] Using XMLHttpRequest instead of fetch');
       
-      const response = await window.fetch(fetchUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${supabaseKey}`,
-        },
-        body: fetchBody,
+      // Use XMLHttpRequest to bypass any fetch interceptors
+      const data = await new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', fetchUrl);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('Authorization', `Bearer ${supabaseKey}`);
+        
+        xhr.onload = () => {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            try {
+              resolve(JSON.parse(xhr.responseText));
+            } catch (e) {
+              resolve({ success: true });
+            }
+          } else {
+            try {
+              const errorData = JSON.parse(xhr.responseText);
+              reject(new Error(errorData.error || `Error ${xhr.status}`));
+            } catch (e) {
+              reject(new Error(`Error ${xhr.status}`));
+            }
+          }
+        };
+        
+        xhr.onerror = () => reject(new Error('Error de conexión. Verifica tu internet.'));
+        xhr.send(fetchBody);
       });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: 'Error en el servidor' }));
-        throw new Error(errorData.error || `Error ${response.status}`);
-      }
-
-      const data = await response.json();
       
       if (data?.error) {
         setError(data.error);
