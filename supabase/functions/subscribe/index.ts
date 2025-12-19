@@ -12,8 +12,7 @@ const ALLOWED_ORIGINS = [
   'http://localhost:8080',
   'http://localhost:5173',
   'http://localhost:3000',
-  'https://anxo-newsletter5.vercel.app',
-  'https://anxo-newsletter6.vercel.app',
+  'https://anxonewsletter.vercel.app',
 ];
 
 function getCorsHeaders(origin: string | null) {
