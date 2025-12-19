@@ -266,19 +266,21 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://yaqanfxjtcmitvpkdkmy.supabase.co';
       const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlhcWFuZnhqdGNtaXR2cGtka215Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYxNDk4NDQsImV4cCI6MjA4MTcyNTg0NH0.SIRy_c7iG3dVLzyMFV60NLOEAa0fEq-gZ7ntlZzrUJo';
       
-      console.log('[DEBUG] Using URL:', supabaseUrl);
+      const fetchUrl = `${supabaseUrl}/functions/v1/subscribe`;
+      const fetchBody = JSON.stringify({ email: trimmedEmail, name: sanitizedName });
       
-      const response = await fetch(
-        `${supabaseUrl}/functions/v1/subscribe`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${supabaseKey}`,
-          },
-          body: JSON.stringify({ email: trimmedEmail, name: sanitizedName }),
-        }
-      );
+      console.log('[DEBUG] Fetch URL:', fetchUrl);
+      console.log('[DEBUG] Fetch body:', fetchBody);
+      console.log('[DEBUG] Auth header exists:', !!supabaseKey);
+      
+      const response = await fetch(fetchUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseKey}`,
+        },
+        body: fetchBody,
+      });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: 'Error en el servidor' }));
