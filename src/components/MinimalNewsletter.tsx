@@ -273,7 +273,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
       console.log('[DEBUG] Fetch body:', fetchBody);
       console.log('[DEBUG] Auth header exists:', !!supabaseKey);
       
-      const response = await fetch(fetchUrl, {
+      const response = await window.fetch(fetchUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
