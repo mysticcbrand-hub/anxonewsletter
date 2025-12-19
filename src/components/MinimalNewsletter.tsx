@@ -266,12 +266,20 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
     console.log('[DEBUG] Supabase client:', supabase);
     
     try {
+      console.log('[DEBUG] Calling function with:', {
+        email: trimmedEmail,
+        name: sanitizedName,
+        functionName: 'subscribe'
+      });
+      
       const { data, error: fnError } = await supabase.functions.invoke('subscribe', {
         body: { email: trimmedEmail, name: sanitizedName },
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
         },
       });
+      
+      console.log('[DEBUG] Function response:', { data, error: fnError });
       
       if (fnError) {
         throw fnError;
