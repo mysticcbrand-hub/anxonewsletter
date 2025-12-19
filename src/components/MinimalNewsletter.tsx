@@ -263,13 +263,18 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
     
     try {
       // Call Edge Function directly with fetch (more reliable than supabase.functions.invoke)
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://yaqanfxjtcmitvpkdkmy.supabase.co';
+      const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlhcWFuZnhqdGNtaXR2cGtka215Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYxNDk4NDQsImV4cCI6MjA4MTcyNTg0NH0.SIRy_c7iG3dVLzyMFV60NLOEAa0fEq-gZ7ntlZzrUJo';
+      
+      console.log('[DEBUG] Using URL:', supabaseUrl);
+      
       const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/subscribe`,
+        `${supabaseUrl}/functions/v1/subscribe`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+            'Authorization': `Bearer ${supabaseKey}`,
           },
           body: JSON.stringify({ email: trimmedEmail, name: sanitizedName }),
         }
