@@ -1,0 +1,325 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Apple-inspired dark palette with golden accents */
+    --background: 0 0% 4%;
+    --foreground: 240 6% 97%;
+
+    --card: 0 0% 11%;
+    --card-foreground: 240 6% 97%;
+
+    --popover: 0 0% 11%;
+    --popover-foreground: 240 6% 97%;
+
+    --primary: 47 100% 52%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 35 100% 52%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 53%;
+
+    --accent: 47 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --success: 142 71% 51%;
+    --success-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.04;
+    --ring: 47 100% 52%;
+
+    --radius: 1rem;
+
+    /* Custom glass effects */
+    --glass-bg: 0 0% 100% / 0.03;
+    --glass-border: 0 0% 100% / 0.08;
+    --glass-hover: 0 0% 100% / 0.08;
+
+    /* Sidebar (keeping defaults) */
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 240 5% 65%;
+    --sidebar-primary: 47 100% 52%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 240 5% 65%;
+    --sidebar-border: 0 0% 100% / 0.08;
+    --sidebar-ring: 47 100% 52%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 240 6% 97%;
+    --card: 0 0% 11%;
+    --card-foreground: 240 6% 97%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 240 6% 97%;
+    --primary: 47 100% 52%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 35 100% 52%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 53%;
+    --accent: 47 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --success: 142 71% 51%;
+    --success-foreground: 0 0% 0%;
+    --destructive: 0 62% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.04;
+    --ring: 47 100% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[hsl(var(--glass-bg))] backdrop-blur-3xl border border-[hsl(var(--glass-border))] rounded-3xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-card-hover {
+    @apply hover:bg-[hsl(var(--glass-hover))] hover:border-[hsl(0_0%_100%/0.15)] transition-all duration-300;
+  }
+
+  .glass-input {
+    @apply bg-[hsl(var(--input))] border border-[hsl(var(--glass-border))] rounded-xl;
+    @apply focus:bg-[hsl(0_0%_100%/0.06)] focus:border-[hsl(var(--primary)/0.4)] focus:outline-none;
+    @apply text-foreground placeholder:text-foreground/30 transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-semibold rounded-xl;
+    @apply hover:bg-accent hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)];
+    @apply disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200;
+  }
+
+  .feature-icon {
+    @apply w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .text-glow {
+    text-shadow: 
+      0 0 10px hsl(47 100% 52% / 0.4),
+      0 0 25px hsl(47 100% 52% / 0.25),
+      0 0 40px hsl(47 100% 52% / 0.1);
+  }
+
+  .text-glow-subtle {
+    text-shadow: 
+      0 0 8px hsl(47 100% 52% / 0.3),
+      0 0 20px hsl(47 100% 52% / 0.15);
+  }
+
+  .btn-glow {
+    box-shadow: 
+      0 0 15px hsl(47 100% 52% / 0.3),
+      0 0 30px hsl(47 100% 52% / 0.15);
+  }
+
+  .btn-glow:hover {
+    box-shadow: 
+      0 0 20px hsl(47 100% 52% / 0.45),
+      0 0 40px hsl(47 100% 52% / 0.25);
+  }
+
+  /* Phone input styling */
+  .phone-input-wrapper .PhoneInput {
+    @apply w-full;
+  }
+
+  .phone-input-wrapper .PhoneInputInput {
+    @apply w-full pl-24 pr-5 py-3.5 md:py-4 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10;
+    @apply focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none;
+    @apply text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base;
+  }
+
+  .phone-input-wrapper .PhoneInputCountry {
+    @apply absolute left-10 top-1/2 -translate-y-1/2 z-10;
+  }
+
+  .phone-input-wrapper .PhoneInputCountrySelect {
+    @apply bg-transparent border-none text-foreground cursor-pointer;
+  }
+
+  .phone-input-wrapper .PhoneInputCountryIcon {
+    @apply w-5 h-5;
+  }
+
+  .phone-input-wrapper .PhoneInputCountrySelectArrow {
+    @apply text-foreground/40 ml-1;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-drift {
+    animation: drift 90s ease-in-out infinite alternate;
+  }
+
+  .animate-drift-reverse {
+    animation: drift 70s ease-in-out infinite alternate-reverse;
+  }
+
+  .animate-float {
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .animate-float-reverse {
+    animation: float 25s ease-in-out infinite reverse;
+  }
+
+  /* Exit Intent Popup Animations */
+  .animate-exitPopupFade {
+    animation: exitPopupFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-exitPopupScale {
+    animation: exitPopupScale 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-feedbackSlide {
+    animation: feedbackSlideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+/* Exit Intent Popup - Smooth premium animations */
+@keyframes exitPopupFade {
+  from { 
+    opacity: 0;
+  }
+  to { 
+    opacity: 1;
+  }
+}
+
+@keyframes exitPopupScale {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes feedbackSlideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(80px, 40px);
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30%, 50% {
+    transform: rotate(14deg);
+  }
+  20%, 40% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+}
