@@ -261,29 +261,26 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
     setLoading(true);
     setError('');
     
-    console.log('[DEBUG] Supabase URL:', import.meta.env.VITE_SUPABASE_URL);
-    console.log('[DEBUG] Anon key exists:', !!import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY);
-    console.log('[DEBUG] Supabase client:', supabase);
-    
     try {
-      console.log('[DEBUG] Calling function with:', {
-        email: trimmedEmail,
-        name: sanitizedName,
-        functionName: 'subscribe'
-      });
-      
-      const { data, error: fnError } = await supabase.functions.invoke('subscribe', {
-        body: { email: trimmedEmail, name: sanitizedName },
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-        },
-      });
-      
-      console.log('[DEBUG] Function response:', { data, error: fnError });
-      
-      if (fnError) {
-        throw fnError;
+      // Call Edge Function directly with fetch (more reliable than supabase.functions.invoke)
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/subscribe`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          },
+          body: JSON.stringify({ email: trimmedEmail, name: sanitizedName }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Error en el servidor' }));
+        throw new Error(errorData.error || `Error ${response.status}`);
       }
+
+      const data = await response.json();
       
       if (data?.error) {
         setError(data.error);
