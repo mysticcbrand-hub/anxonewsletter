@@ -585,7 +585,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
           {/* Estado: Setup - Configuración de Gmail */}
           {step === 'setup' && (
-            <div className="px-4 max-w-xl mx-auto pt-20 md:pt-24">
+            <div className="px-4 max-w-xl mx-auto pt-28 md:pt-32">
               {/* Saludo */}
               <h2 
                 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-3 opacity-0 tracking-tight"
@@ -594,7 +594,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                 Hola, {savedName} <span className="inline-block animate-[wave_2s_ease-in-out_infinite]">👋</span>
               </h2>
               <p 
-                className="text-foreground/50 text-center text-base md:text-lg mb-10 md:mb-14 opacity-0 font-light"
+                className="text-foreground/50 text-center text-base md:text-lg mb-6 md:mb-8 opacity-0 font-light"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards' }}
               >
                 Sigue estos pasos para no perderte nada
