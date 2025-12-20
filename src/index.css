@@ -96,8 +96,9 @@
 
 @layer components {
   .glass-card {
-    @apply bg-[hsl(var(--glass-bg))] backdrop-blur-3xl border border-[hsl(var(--glass-border))] rounded-3xl;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    @apply bg-[hsl(var(--glass-bg))] backdrop-blur-[40px] border border-[hsl(var(--glass-border))] rounded-3xl lg:rounded-[2.5rem];
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(40px);
   }
 
   .glass-card-hover {
@@ -105,13 +106,15 @@
   }
 
   .glass-input {
-    @apply bg-[hsl(var(--input))] border border-[hsl(var(--glass-border))] rounded-xl;
+    @apply bg-[hsl(var(--input))] border border-[hsl(var(--glass-border))] rounded-xl lg:rounded-2xl;
     @apply focus:bg-[hsl(0_0%_100%/0.06)] focus:border-[hsl(var(--primary)/0.4)] focus:outline-none;
     @apply text-foreground placeholder:text-foreground/30 transition-all duration-200;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground font-semibold rounded-xl;
+    @apply bg-primary text-primary-foreground font-semibold rounded-xl lg:rounded-2xl;
     @apply hover:bg-accent hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)];
     @apply disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200;
   }
@@ -126,27 +129,29 @@
 
   .text-glow {
     text-shadow: 
-      0 0 10px hsl(47 100% 52% / 0.4),
-      0 0 25px hsl(47 100% 52% / 0.25),
-      0 0 40px hsl(47 100% 52% / 0.1);
+      0 0 12px hsl(47 100% 52% / 0.5),
+      0 0 30px hsl(47 100% 52% / 0.3),
+      0 0 50px hsl(47 100% 52% / 0.15);
   }
 
   .text-glow-subtle {
     text-shadow: 
-      0 0 8px hsl(47 100% 52% / 0.3),
-      0 0 20px hsl(47 100% 52% / 0.15);
+      0 0 10px hsl(47 100% 52% / 0.4),
+      0 0 25px hsl(47 100% 52% / 0.2);
   }
 
   .btn-glow {
     box-shadow: 
-      0 0 15px hsl(47 100% 52% / 0.3),
-      0 0 30px hsl(47 100% 52% / 0.15);
+      0 0 20px hsl(47 100% 52% / 0.35),
+      0 0 40px hsl(47 100% 52% / 0.2),
+      0 8px 32px rgba(0, 0, 0, 0.3);
   }
 
   .btn-glow:hover {
     box-shadow: 
-      0 0 20px hsl(47 100% 52% / 0.45),
-      0 0 40px hsl(47 100% 52% / 0.25);
+      0 0 25px hsl(47 100% 52% / 0.5),
+      0 0 50px hsl(47 100% 52% / 0.3),
+      0 12px 40px rgba(0, 0, 0, 0.4);
   }
 
   /* Phone input styling */
@@ -155,21 +160,21 @@
   }
 
   .phone-input-wrapper .PhoneInputInput {
-    @apply w-full pl-24 pr-5 py-3.5 md:py-4 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10;
+    @apply w-full pl-24 lg:pl-28 pr-5 md:pr-6 lg:pr-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10;
     @apply focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none;
-    @apply text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base;
+    @apply text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base lg:text-lg;
   }
 
   .phone-input-wrapper .PhoneInputCountry {
-    @apply absolute left-10 top-1/2 -translate-y-1/2 z-10;
+    @apply absolute left-10 lg:left-12 top-1/2 -translate-y-1/2 z-10;
   }
 
   .phone-input-wrapper .PhoneInputCountrySelect {
-    @apply bg-transparent border-none text-foreground cursor-pointer;
+    @apply bg-transparent border-none text-foreground cursor-pointer text-sm md:text-base;
   }
 
   .phone-input-wrapper .PhoneInputCountryIcon {
-    @apply w-5 h-5;
+    @apply w-5 h-5 lg:w-6 lg:h-6;
   }
 
   .phone-input-wrapper .PhoneInputCountrySelectArrow {

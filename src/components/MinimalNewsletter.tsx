@@ -345,26 +345,26 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
     <>
       {/* Progress bar - hidden on completed */}
       {step !== 'completed' && <ProgressBar currentStep={currentStepNumber as 1 | 2 | 3 | 4} />}
-      <div className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-      <div className="max-w-2xl w-full">
+      <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 relative overflow-hidden">
+      <div className="max-w-2xl lg:max-w-3xl w-full">
         
         {/* Título principal - Solo en email y details */}
         {(step === 'email' || step === 'details') && (
           <>
             <h1 
-              className="text-3xl md:text-5xl lg:text-7xl font-light text-center mb-4 md:mb-6 opacity-0 px-2"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-center mb-4 md:mb-6 lg:mb-8 opacity-0 px-4 md:px-6"
               style={{ animation: 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards' }}
             >
               Esto no es para
-              <span className="block font-semibold text-primary mt-2 text-glow">todo el mundo.</span>
+              <span className="block font-semibold text-primary mt-2 md:mt-3 text-glow">todo el mundo.</span>
             </h1>
             
             <p 
-              className="text-base md:text-xl lg:text-2xl text-foreground/60 text-center mb-12 md:mb-16 font-light leading-relaxed opacity-0 px-2"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/60 text-center mb-12 md:mb-16 lg:mb-20 font-light leading-relaxed opacity-0 px-4 md:px-6"
               style={{ animation: 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards' }}
             >
               Mi aprendizaje de años y años,
-              <span className="block mt-1">directo a tu móvil.</span>
+              <span className="block mt-1 md:mt-2">directo a tu móvil.</span>
             </p>
           </>
         )}
@@ -376,26 +376,26 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
         >
           {/* Paso 1: Email */}
           {step === 'email' && (
-            <div className="max-w-lg mx-auto px-2">
-              <div className="flex flex-col sm:flex-row gap-3">
+            <div className="max-w-lg lg:max-w-xl mx-auto px-2">
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setError(''); }}
                   onKeyDown={(e) => e.key === 'Enter' && handleEmailContinue()}
                   placeholder="tu@email.com"
-                  className={`flex-1 min-w-0 px-5 md:px-6 py-3.5 md:py-4 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border ${error ? 'border-destructive/40' : 'border-foreground/10'} focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base`}
+                  className={`flex-1 min-w-0 px-5 md:px-6 lg:px-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border ${error ? 'border-destructive/40' : 'border-foreground/10'} focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base lg:text-lg`}
                 />
                 <button
                   type="button"
                   onClick={handleEmailContinue}
-                  className="px-6 md:px-8 py-3.5 md:py-4 rounded-2xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] transition-all duration-300 whitespace-nowrap text-sm md:text-base"
+                  className="px-6 md:px-8 lg:px-10 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] transition-all duration-300 whitespace-nowrap text-sm md:text-base lg:text-lg"
                 >
                   Siguiente
                 </button>
               </div>
               {error && (
-                <p className="text-xs text-destructive text-center mt-3 animate-fade-in">
+                <p className="text-xs md:text-sm text-destructive text-center mt-3 animate-fade-in">
                   {error}
                 </p>
               )}
@@ -404,29 +404,29 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
           {/* Paso 2: Detalles */}
           {step === 'details' && (
-            <form onSubmit={handleSubmit} className="max-w-lg mx-auto px-2 animate-fade-in">
-              <div className="space-y-3">
+            <form onSubmit={handleSubmit} className="max-w-lg lg:max-w-xl mx-auto px-2 animate-fade-in">
+              <div className="space-y-3 lg:space-y-4">
                 {/* Email (solo lectura) */}
-                <div className="px-5 md:px-6 py-3 md:py-3.5 rounded-2xl bg-foreground/[0.03] border border-foreground/5 text-foreground/50 text-sm">
+                <div className="px-5 md:px-6 lg:px-7 py-3 md:py-3.5 lg:py-4 rounded-2xl bg-foreground/[0.03] border border-foreground/5 text-foreground/50 text-sm md:text-base lg:text-lg">
                   {email}
                 </div>
                 
                 {/* Nombre */}
                 <div className="relative">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
+                  <User className="absolute left-4 lg:left-5 top-1/2 -translate-y-1/2 w-4 h-4 lg:w-5 lg:h-5 text-foreground/30" />
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => { setName(e.target.value); setError(''); }}
                     placeholder="Tu nombre"
                     maxLength={100}
-                    className="w-full pl-11 pr-5 md:pr-6 py-3.5 md:py-4 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base"
+                    className="w-full pl-11 lg:pl-14 pr-5 md:pr-6 lg:pr-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base lg:text-lg"
                   />
                 </div>
                 
                 {/* Teléfono */}
                 <div className="relative phone-input-wrapper">
-                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30 z-10" />
+                  <Phone className="absolute left-4 lg:left-5 top-1/2 -translate-y-1/2 w-4 h-4 lg:w-5 lg:h-5 text-foreground/30 z-10" />
                   <PhoneInput
                     international
                     defaultCountry="ES"
@@ -439,7 +439,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                 </div>
 
                 {/* Checkbox de privacidad */}
-                <label className="flex items-start gap-3 cursor-pointer group">
+                <label className="flex items-start gap-3 lg:gap-4 cursor-pointer group pt-1">
                   <div className="relative mt-0.5">
                     <input
                       type="checkbox"
@@ -447,13 +447,13 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                       onChange={(e) => { setAcceptedPrivacy(e.target.checked); setError(''); }}
                       className="sr-only peer"
                     />
-                    <div className="w-5 h-5 rounded-md border border-foreground/20 bg-foreground/[0.05] peer-checked:bg-primary peer-checked:border-primary transition-all duration-200 flex items-center justify-center">
+                    <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-md border border-foreground/20 bg-foreground/[0.05] peer-checked:bg-primary peer-checked:border-primary transition-all duration-200 flex items-center justify-center">
                       {acceptedPrivacy && (
-                        <Check className="w-3.5 h-3.5 text-primary-foreground" strokeWidth={3} />
+                        <Check className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-primary-foreground" strokeWidth={3} />
                       )}
                     </div>
                   </div>
-                  <span className="text-xs text-foreground/50 group-hover:text-foreground/70 transition-colors leading-relaxed">
+                  <span className="text-xs md:text-sm lg:text-base text-foreground/50 group-hover:text-foreground/70 transition-colors leading-relaxed">
                     Acepto la{' '}
                     <Link 
                       to="/privacidad" 
@@ -468,11 +468,11 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                 <button
                   type="submit"
                   disabled={loading || !acceptedPrivacy}
-                  className="w-full px-6 md:px-8 py-3.5 md:py-4 rounded-2xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 text-sm md:text-base"
+                  className="w-full px-6 md:px-8 lg:px-10 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 text-sm md:text-base lg:text-lg"
                 >
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">
-                      <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                      <div className="w-4 h-4 lg:w-5 lg:h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
                       Enviando...
                     </span>
                   ) : (
@@ -482,7 +482,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               </div>
               
               {error && (
-                <p className="text-xs text-destructive text-center mt-3 animate-fade-in">
+                <p className="text-xs md:text-sm text-destructive text-center mt-3 animate-fade-in">
                   {error}
                 </p>
               )}
@@ -491,21 +491,21 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
           {/* Estado: Ya suscrito */}
           {step === 'already-subscribed' && (
-            <div className="text-center py-6 md:py-8 px-4 animate-shake">
+            <div className="text-center py-6 md:py-8 lg:py-10 px-4 animate-shake">
               <div 
-                className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-destructive/10 backdrop-blur-xl border border-destructive/30 flex items-center justify-center mx-auto mb-5 md:mb-6"
+                className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-destructive/10 backdrop-blur-xl border border-destructive/30 flex items-center justify-center mx-auto mb-5 md:mb-6 lg:mb-8"
                 style={{ animation: 'scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards' }}
               >
-                <AlertCircle className="w-8 h-8 md:w-10 md:h-10 text-destructive" strokeWidth={2} />
+                <AlertCircle className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-destructive" strokeWidth={2} />
               </div>
               <h2 
-                className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 text-destructive opacity-0"
+                className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 lg:mb-6 text-destructive opacity-0"
                 style={{ animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards' }}
               >
                 Error. Ya te has suscrito
               </h2>
               <p 
-                className="text-foreground/50 text-xs md:text-sm max-w-sm mx-auto mb-8 opacity-0"
+                className="text-foreground/50 text-sm md:text-base lg:text-lg max-w-md mx-auto mb-6 md:mb-8 lg:mb-10 opacity-0"
                 style={{ animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.35s forwards' }}
               >
                 Si no recibiste el email de confirmación, revisa spam
@@ -518,7 +518,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                   setEmail('');
                   setError('');
                 }}
-                className="group mx-auto px-8 py-3.5 rounded-[20px] bg-[#1a1a1a]/80 backdrop-blur-[40px] border border-white/20 hover:border-white/30 text-white/90 hover:text-white font-medium transition-all duration-300 opacity-0 hover:scale-[1.02] shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)]"
+                className="group mx-auto px-8 md:px-10 lg:px-12 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-[#1a1a1a]/80 backdrop-blur-[40px] border border-white/20 hover:border-white/30 text-white/90 hover:text-white font-medium transition-all duration-300 opacity-0 hover:scale-[1.02] shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] text-sm md:text-base lg:text-lg"
                 style={{ 
                   animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards',
                   WebkitBackdropFilter: 'blur(40px)'
@@ -526,7 +526,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               >
                 <span className="flex items-center gap-2">
                   Entendido
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
+                  <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-0.5 transition-transform duration-300" />
                 </span>
               </button>
             </div>
@@ -534,27 +534,27 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
           {/* Estado: Éxito - Email enviado */}
           {step === 'success' && (
-            <div className="text-center py-6 md:py-8 px-4">
+            <div className="text-center py-6 md:py-8 lg:py-12 px-4">
               <div 
-                className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/10 backdrop-blur-xl border border-primary/30 flex items-center justify-center mx-auto mb-5 md:mb-6 opacity-0"
+                className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-primary/10 backdrop-blur-xl border border-primary/30 flex items-center justify-center mx-auto mb-5 md:mb-6 lg:mb-8 opacity-0"
                 style={{ animation: 'scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards' }}
               >
-                <Mail className="w-8 h-8 md:w-10 md:h-10 text-primary" strokeWidth={2} />
+                <Mail className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-primary" strokeWidth={2} />
               </div>
               <h2 
-                className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 md:mb-4 text-primary text-glow opacity-0"
+                className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 md:mb-4 lg:mb-6 text-primary text-glow opacity-0"
                 style={{ animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards' }}
               >
                 Bien hecho.
               </h2>
               <p 
-                className="text-foreground/80 text-base md:text-lg lg:text-xl mb-3 opacity-0"
+                className="text-foreground/80 text-base md:text-lg lg:text-xl mb-3 md:mb-4 lg:mb-5 opacity-0"
                 style={{ animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.35s forwards' }}
               >
                 Te acabo de mandar un email de confirmación
               </p>
               <p 
-                className="text-foreground/50 text-xs md:text-sm max-w-sm mx-auto mb-6 opacity-0"
+                className="text-foreground/50 text-sm md:text-base lg:text-lg max-w-lg mx-auto mb-6 md:mb-8 lg:mb-10 opacity-0"
                 style={{ animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards' }}
               >
                 Haz clic en el enlace del email para completar tu suscripción
@@ -562,39 +562,39 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               
               {/* Countdown Timer */}
               <div 
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-foreground/[0.03] backdrop-blur-xl border border-foreground/[0.08] mb-8 opacity-0"
+                className="inline-flex items-center gap-2 lg:gap-3 px-5 md:px-6 lg:px-7 py-3 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.03] backdrop-blur-xl border border-foreground/[0.08] mb-8 md:mb-10 lg:mb-12 opacity-0"
                 style={{ animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards' }}
               >
-                <Clock className={`w-4 h-4 ${countdown <= 60 ? 'text-destructive' : 'text-primary'}`} />
-                <span className={`font-mono text-lg font-semibold tabular-nums ${countdown <= 60 ? 'text-destructive' : 'text-foreground'}`}>
+                <Clock className={`w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 ${countdown <= 60 ? 'text-destructive' : 'text-primary'}`} />
+                <span className={`font-mono text-lg md:text-xl lg:text-2xl font-semibold tabular-nums ${countdown <= 60 ? 'text-destructive' : 'text-foreground'}`}>
                   {formatTime(countdown)}
                 </span>
-                <span className="text-foreground/40 text-sm">restantes</span>
+                <span className="text-foreground/40 text-sm md:text-base lg:text-lg">restantes</span>
               </div>
 
               <button
                 onClick={handleContinueToSetup}
-                className="px-8 py-4 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 hover:bg-foreground/[0.08] hover:border-primary/30 text-foreground font-medium transition-all duration-300 opacity-0 flex items-center gap-2 mx-auto"
+                className="px-8 md:px-10 lg:px-12 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 hover:bg-foreground/[0.08] hover:border-primary/30 text-foreground font-medium transition-all duration-300 opacity-0 flex items-center gap-2 mx-auto text-sm md:text-base lg:text-lg"
                 style={{ animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.75s forwards' }}
               >
                 Continuar
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
               </button>
             </div>
           )}
 
           {/* Estado: Setup - Configuración de Gmail */}
           {step === 'setup' && (
-            <div className="px-4 max-w-xl mx-auto pt-28 md:pt-32">
+            <div className="px-4 max-w-xl lg:max-w-2xl mx-auto pt-20 md:pt-24 lg:pt-28">
               {/* Saludo */}
               <h2 
-                className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-3 opacity-0 tracking-tight"
+                className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-3 md:mb-4 lg:mb-5 opacity-0 tracking-tight"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards' }}
               >
                 Hola, {savedName} <span className="inline-block animate-[wave_2s_ease-in-out_infinite]">👋</span>
               </h2>
               <p 
-                className="text-foreground/50 text-center text-base md:text-lg mb-6 md:mb-8 opacity-0 font-light"
+                className="text-foreground/50 text-center text-base md:text-lg lg:text-xl mb-6 md:mb-8 lg:mb-10 opacity-0 font-light"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards' }}
               >
                 Sigue estos pasos para no perderte nada
@@ -602,20 +602,20 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
               {/* Video placeholder */}
               <div 
-                className="rounded-3xl bg-foreground/[0.02] backdrop-blur-xl border border-foreground/[0.06] p-10 md:p-14 mb-5 opacity-0 hover:bg-foreground/[0.03] hover:border-foreground/[0.1] transition-all duration-500"
+                className="rounded-3xl bg-foreground/[0.02] backdrop-blur-xl border border-foreground/[0.06] p-10 md:p-14 lg:p-16 mb-5 md:mb-6 lg:mb-7 opacity-0 hover:bg-foreground/[0.03] hover:border-foreground/[0.1] transition-all duration-500"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards' }}
               >
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-18 h-18 md:w-24 md:h-24 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 hover:scale-110 hover:bg-primary/15 transition-all duration-300 cursor-pointer group shadow-lg shadow-primary/5">
-                    <Play className="w-8 h-8 md:w-10 md:h-10 text-primary ml-1 group-hover:scale-110 transition-transform duration-300" fill="currentColor" />
+                  <div className="w-18 h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 md:mb-6 lg:mb-7 hover:scale-110 hover:bg-primary/15 transition-all duration-300 cursor-pointer group shadow-lg shadow-primary/5">
+                    <Play className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-primary ml-1 group-hover:scale-110 transition-transform duration-300" fill="currentColor" />
                   </div>
-                  <p className="text-foreground/70 text-sm font-medium">Video de configuración</p>
-                  <p className="text-foreground/30 text-xs mt-1">1 minuto</p>
+                  <p className="text-foreground/70 text-sm md:text-base lg:text-lg font-medium">Video de configuración</p>
+                  <p className="text-foreground/30 text-xs md:text-sm lg:text-base mt-1">1 minuto</p>
                 </div>
               </div>
 
               <p 
-                className="text-foreground/35 text-center text-sm mb-8 opacity-0 font-light"
+                className="text-foreground/35 text-center text-sm md:text-base lg:text-lg mb-8 md:mb-10 lg:mb-12 opacity-0 font-light"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards' }}
               >
                 Mira este video de 1 minuto para configurar tu Gmail
@@ -623,15 +623,15 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
               {/* Checklist */}
               <div 
-                className="rounded-3xl bg-foreground/[0.02] backdrop-blur-xl border border-foreground/[0.06] p-6 md:p-8 mb-8 opacity-0"
+                className="rounded-3xl bg-foreground/[0.02] backdrop-blur-xl border border-foreground/[0.06] p-6 md:p-8 lg:p-10 mb-8 md:mb-10 lg:mb-12 opacity-0"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards' }}
               >
-                <h3 className="text-foreground/90 font-medium mb-6 text-sm tracking-wide uppercase">Marca cuando completes cada paso</h3>
+                <h3 className="text-foreground/90 font-medium mb-6 md:mb-7 lg:mb-8 text-xs md:text-sm lg:text-base tracking-wide uppercase">Marca cuando completes cada paso</h3>
                 
-                <div className="space-y-4">
+                <div className="space-y-4 md:space-y-5 lg:space-y-6">
                   {/* Check 1 */}
                   <label 
-                    className={`flex items-start gap-4 p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${
+                    className={`flex items-start gap-4 md:gap-5 lg:gap-6 p-5 md:p-6 lg:p-7 rounded-2xl border transition-all duration-300 cursor-pointer ${
                       setupChecks.filter 
                         ? 'bg-primary/5 border-primary/20 shadow-sm shadow-primary/5' 
                         : 'bg-foreground/[0.01] border-foreground/[0.05] hover:bg-foreground/[0.03] hover:border-foreground/[0.1]'
@@ -644,19 +644,19 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                         onChange={(e) => setSetupChecks(prev => ({ ...prev, filter: e.target.checked }))}
                         className="sr-only peer"
                       />
-                      <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                      <div className={`w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
                         setupChecks.filter 
                           ? 'bg-primary border-primary scale-110' 
                           : 'border-foreground/20 bg-transparent hover:border-foreground/30'
                       }`}>
                         {setupChecks.filter && (
-                          <Check className="w-3.5 h-3.5 text-primary-foreground" strokeWidth={3} />
+                          <Check className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-4.5 lg:h-4.5 text-primary-foreground" strokeWidth={3} />
                         )}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <p className={`font-medium transition-colors duration-300 ${setupChecks.filter ? 'text-foreground' : 'text-foreground/80'}`}>1. Configurar filtro de correo</p>
-                      <p className="text-foreground/40 text-sm mt-1.5 leading-relaxed font-light">
+                      <p className={`font-medium transition-colors duration-300 text-sm md:text-base lg:text-lg ${setupChecks.filter ? 'text-foreground' : 'text-foreground/80'}`}>1. Configurar filtro de correo</p>
+                      <p className="text-foreground/40 text-xs md:text-sm lg:text-base mt-1.5 md:mt-2 lg:mt-2.5 leading-relaxed font-light">
                         Crear filtro "Nunca Spam" y marcar siempre como importante
                       </p>
                     </div>
@@ -664,7 +664,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
                   {/* Check 2 */}
                   <label 
-                    className={`flex items-start gap-4 p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${
+                    className={`flex items-start gap-4 md:gap-5 lg:gap-6 p-5 md:p-6 lg:p-7 rounded-2xl border transition-all duration-300 cursor-pointer ${
                       setupChecks.primary 
                         ? 'bg-primary/5 border-primary/20 shadow-sm shadow-primary/5' 
                         : 'bg-foreground/[0.01] border-foreground/[0.05] hover:bg-foreground/[0.03] hover:border-foreground/[0.1]'
@@ -677,19 +677,19 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                         onChange={(e) => setSetupChecks(prev => ({ ...prev, primary: e.target.checked }))}
                         className="sr-only peer"
                       />
-                      <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                      <div className={`w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
                         setupChecks.primary 
                           ? 'bg-primary border-primary scale-110' 
                           : 'border-foreground/20 bg-transparent hover:border-foreground/30'
                       }`}>
                         {setupChecks.primary && (
-                          <Check className="w-3.5 h-3.5 text-primary-foreground" strokeWidth={3} />
+                          <Check className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-4.5 lg:h-4.5 text-primary-foreground" strokeWidth={3} />
                         )}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <p className={`font-medium transition-colors duration-300 ${setupChecks.primary ? 'text-foreground' : 'text-foreground/80'}`}>2. Mover emails a "Primario"</p>
-                      <p className="text-foreground/40 text-sm mt-1.5 leading-relaxed font-light">
+                      <p className={`font-medium transition-colors duration-300 text-sm md:text-base lg:text-lg ${setupChecks.primary ? 'text-foreground' : 'text-foreground/80'}`}>2. Mover emails a "Primario"</p>
+                      <p className="text-foreground/40 text-xs md:text-sm lg:text-base mt-1.5 md:mt-2 lg:mt-2.5 leading-relaxed font-light">
                         Arrastra mis emails desde "Promociones" a la pestaña "Primario"
                       </p>
                     </div>
@@ -701,7 +701,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               <button
                 onClick={handleCompleteSetup}
                 disabled={!allChecksCompleted}
-                className={`w-full px-8 py-4 rounded-2xl font-medium transition-all duration-500 flex items-center justify-center gap-2.5 opacity-0 ${
+                className={`w-full px-8 md:px-10 lg:px-12 py-4 md:py-5 lg:py-6 rounded-2xl font-medium transition-all duration-500 flex items-center justify-center gap-2 lg:gap-3 opacity-0 text-sm md:text-base lg:text-lg ${
                   allChecksCompleted
                     ? 'bg-primary text-primary-foreground btn-glow hover:scale-[1.02] shadow-lg shadow-primary/20'
                     : 'bg-foreground/[0.03] text-foreground/25 cursor-not-allowed border border-foreground/[0.06]'
@@ -709,34 +709,34 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards' }}
               >
                 Ya terminé
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
               </button>
             </div>
           )}
 
           {/* Estado: Completado - Felicitación final */}
           {step === 'completed' && (
-            <div className="text-center py-12 md:py-16 px-4">
+            <div className="text-center py-12 md:py-16 lg:py-20 px-4">
               <div 
-                className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-primary/10 backdrop-blur-xl border border-primary/20 flex items-center justify-center mx-auto mb-8 md:mb-10 opacity-0 shadow-xl shadow-primary/10"
+                className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full bg-primary/10 backdrop-blur-xl border border-primary/20 flex items-center justify-center mx-auto mb-8 md:mb-10 lg:mb-12 opacity-0 shadow-xl shadow-primary/10"
                 style={{ animation: 'scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards' }}
               >
-                <Check className="w-10 h-10 md:w-14 md:h-14 text-primary" strokeWidth={2} />
+                <Check className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 text-primary" strokeWidth={2} />
               </div>
               <h2 
-                className="text-3xl md:text-5xl lg:text-6xl font-semibold mb-5 md:mb-6 text-primary text-glow opacity-0 tracking-tight"
+                className="text-3xl md:text-5xl lg:text-6xl font-semibold mb-5 md:mb-6 lg:mb-8 text-primary text-glow opacity-0 tracking-tight"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.25s forwards' }}
               >
                 ¡Perfecto, {savedName}!
               </h2>
               <p 
-                className="text-foreground/70 text-lg md:text-xl lg:text-2xl mb-5 opacity-0 font-light"
+                className="text-foreground/70 text-lg md:text-xl lg:text-2xl mb-5 md:mb-6 lg:mb-8 opacity-0 font-light"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards' }}
               >
                 Ya estás listo para recibir mis emails
               </p>
               <p 
-                className="text-foreground/40 text-sm md:text-base max-w-md mx-auto opacity-0 font-light leading-relaxed"
+                className="text-foreground/40 text-sm md:text-base lg:text-lg max-w-md mx-auto opacity-0 font-light leading-relaxed"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.55s forwards' }}
               >
                 Nos vemos muy pronto en tu bandeja de entrada. <br />
@@ -750,8 +750,8 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
       
       {/* Footer - solo en email, details */}
       {(step === 'email' || step === 'details') && (
-        <div className="fixed bottom-8 left-0 right-0 text-center">
-          <p className="text-xs text-foreground/20">Sin spam. Cancela cuando quieras.</p>
+        <div className="fixed bottom-6 md:bottom-8 left-0 right-0 text-center">
+          <p className="text-xs md:text-sm text-foreground/20">Sin spam. Cancela cuando quieras.</p>
         </div>
       )}
     </div>
