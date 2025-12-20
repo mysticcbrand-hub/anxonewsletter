@@ -585,7 +585,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
           {/* Estado: Setup - Configuración de Gmail */}
           {step === 'setup' && (
-            <div className="px-4 max-w-xl mx-auto pt-8 md:pt-12">
+            <div className="px-4 max-w-xl mx-auto pt-20 md:pt-24">
               {/* Saludo */}
               <h2 
                 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-3 opacity-0 tracking-tight"
