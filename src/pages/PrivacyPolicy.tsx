@@ -38,8 +38,8 @@ const PrivacyPolicy = () => {
                 </a>
               </p>
               <p><span className="text-foreground/50">Web:</span>{' '}
-                <a href="https://anxonews.lovable.app" className="text-primary hover:underline">
-                  anxonews.lovable.app
+                <a href="https://ladosis.vercel.app" className="text-primary hover:underline">
+                  ladosis.vercel.app
                 </a>
               </p>
             </div>
