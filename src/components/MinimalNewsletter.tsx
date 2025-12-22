@@ -363,8 +363,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/60 text-center mb-12 md:mb-16 lg:mb-20 font-light leading-relaxed opacity-0 px-4 md:px-6"
               style={{ animation: 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards' }}
             >
-              Mi aprendizaje de años y años,
-              <span className="block mt-1 md:mt-2">directo a tu móvil.</span>
+              Tu dosis diaria de valor.
             </p>
           </>
         )}
@@ -751,7 +750,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
       {/* Footer - solo en email, details */}
       {(step === 'email' || step === 'details') && (
         <div className="fixed bottom-6 md:bottom-8 left-0 right-0 text-center">
-          <p className="text-xs md:text-sm text-foreground/20">Sin spam. Cancela cuando quieras.</p>
+          <p className="text-xs md:text-sm text-foreground/20">Esto no es para todo el mundo. La Dosis™</p>
         </div>
       )}
     </div>
