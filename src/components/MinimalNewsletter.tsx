@@ -364,7 +364,8 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               style={{ animation: 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards' }}
             >
               Motivación, hábitos y técnicas
-              <span className="block mt-1 md:mt-2">que me ayudaron a invocar mi vida ideal.</span>
+              <span className="block mt-1 md:mt-2">que me ayudaron a invocar mi vida ideal,</span>
+              <span className="block mt-1 md:mt-2">directo a tu inbox.</span>
             </p>
           </>
         )}
