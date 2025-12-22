@@ -363,7 +363,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/60 text-center mb-12 md:mb-16 lg:mb-20 font-light leading-relaxed opacity-0 px-4 md:px-6"
               style={{ animation: 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards' }}
             >
-              Esto no es para todo el mundo.
+              Motivación, hábitos y técnicas que me ayudaron a invocar mi vida ideal.
             </p>
           </>
         )}
