@@ -352,7 +352,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
         {(step === 'email' || step === 'details') && (
           <>
             <h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-center mb-4 md:mb-6 lg:mb-8 opacity-0 px-4 md:px-6"
+              className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-center mb-4 md:mb-6 lg:mb-8 opacity-0 px-4 md:px-6"
               style={{ animation: 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards' }}
             >
               Tu dosis diaria
@@ -752,7 +752,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
       {/* Footer - solo en email, details */}
       {(step === 'email' || step === 'details') && (
         <div className="fixed bottom-6 md:bottom-8 left-0 right-0 text-center">
-          <p className="text-xs md:text-sm text-foreground/20">Esto no es para todo el mundo. La Dosis™ 2025</p>
+          <p className="text-[10px] md:text-xs text-foreground/20">Esto no es para todo el mundo. La Dosis™ 2025</p>
         </div>
       )}
     </div>
