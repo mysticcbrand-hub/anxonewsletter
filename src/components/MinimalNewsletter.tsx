@@ -603,12 +603,16 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
               {/* Video placeholder */}
               <div 
-                className="rounded-3xl bg-foreground/[0.02] backdrop-blur-xl border border-foreground/[0.06] p-10 md:p-14 lg:p-16 mb-5 md:mb-6 lg:mb-7 opacity-0 hover:bg-foreground/[0.03] hover:border-foreground/[0.1] transition-all duration-500"
+                className="rounded-3xl bg-foreground/[0.02] backdrop-blur-xl border border-foreground/[0.06] p-8 md:p-14 lg:p-16 mb-5 md:mb-6 lg:mb-7 opacity-0 hover:bg-foreground/[0.03] hover:border-foreground/[0.1] transition-all duration-500"
                 style={{ animation: 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards' }}
               >
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-18 h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 md:mb-6 lg:mb-7 hover:scale-110 hover:bg-primary/15 transition-all duration-300 cursor-pointer group shadow-lg shadow-primary/5">
-                    <Play className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-primary ml-1 group-hover:scale-110 transition-transform duration-300" fill="currentColor" />
+                  <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center mb-5 md:mb-6 lg:mb-7 hover:scale-105 hover:bg-primary/15 hover:border-primary/30 transition-all duration-300 cursor-pointer group shadow-lg shadow-primary/10 active:scale-95"
+                    style={{ 
+                      boxShadow: '0 4px 20px rgba(255, 214, 10, 0.15), inset 0 1px 0 rgba(255, 214, 10, 0.1)'
+                    }}
+                  >
+                    <Play className="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 text-primary ml-0.5 group-hover:scale-110 transition-transform duration-300" fill="currentColor" strokeWidth={0} />
                   </div>
                   <p className="text-foreground/70 text-sm md:text-base lg:text-lg font-medium">Video de configuración</p>
                   <p className="text-foreground/30 text-xs md:text-sm lg:text-base mt-1">1 minuto</p>
