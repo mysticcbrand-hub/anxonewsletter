@@ -162,7 +162,7 @@
   .phone-input-wrapper .PhoneInputInput {
     @apply w-full pl-24 lg:pl-28 pr-5 md:pr-6 lg:pr-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10;
     @apply focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none;
-    @apply text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base lg:text-lg;
+    @apply text-foreground placeholder:text-foreground/30 transition-all duration-300 text-base lg:text-lg;
   }
 
   .phone-input-wrapper .PhoneInputCountry {

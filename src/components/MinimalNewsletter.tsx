@@ -385,12 +385,12 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                   onChange={(e) => { setEmail(e.target.value); setError(''); }}
                   onKeyDown={(e) => e.key === 'Enter' && handleEmailContinue()}
                   placeholder="tu@email.com"
-                  className={`flex-1 min-w-0 px-5 md:px-6 lg:px-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border ${error ? 'border-destructive/40' : 'border-foreground/10'} focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base lg:text-lg`}
+                  className={`flex-1 min-w-0 px-5 md:px-6 lg:px-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border ${error ? 'border-destructive/40' : 'border-foreground/10'} focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-base lg:text-lg`}
                 />
                 <button
                   type="button"
                   onClick={handleEmailContinue}
-                  className="px-6 md:px-8 lg:px-10 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] transition-all duration-300 whitespace-nowrap text-sm md:text-base lg:text-lg"
+                  className="px-6 md:px-8 lg:px-10 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] transition-all duration-300 whitespace-nowrap text-base lg:text-lg"
                 >
                   Siguiente
                 </button>
@@ -408,7 +408,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
             <form onSubmit={handleSubmit} className="max-w-lg lg:max-w-xl mx-auto px-2 animate-fade-in">
               <div className="space-y-3 lg:space-y-4">
                 {/* Email (solo lectura) */}
-                <div className="px-5 md:px-6 lg:px-7 py-3 md:py-3.5 lg:py-4 rounded-2xl bg-foreground/[0.03] border border-foreground/5 text-foreground/50 text-sm md:text-base lg:text-lg">
+                <div className="px-5 md:px-6 lg:px-7 py-3 md:py-3.5 lg:py-4 rounded-2xl bg-foreground/[0.03] border border-foreground/5 text-foreground/50 text-base lg:text-lg">
                   {email}
                 </div>
                 
@@ -421,7 +421,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                     onChange={(e) => { setName(e.target.value); setError(''); }}
                     placeholder="Tu nombre"
                     maxLength={100}
-                    className="w-full pl-11 lg:pl-14 pr-5 md:pr-6 lg:pr-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-sm md:text-base lg:text-lg"
+                    className="w-full pl-11 lg:pl-14 pr-5 md:pr-6 lg:pr-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-base lg:text-lg"
                   />
                 </div>
                 
