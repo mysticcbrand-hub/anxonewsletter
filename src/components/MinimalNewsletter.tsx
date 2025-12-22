@@ -750,7 +750,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
       {/* Footer - solo en email, details */}
       {(step === 'email' || step === 'details') && (
         <div className="fixed bottom-6 md:bottom-8 left-0 right-0 text-center">
-          <p className="text-xs md:text-sm text-foreground/20">Esto no es para todo el mundo. La Dosis™</p>
+          <p className="text-xs md:text-sm text-foreground/20">Sin spam. Cancela cuando quieras.</p>
         </div>
       )}
     </div>
