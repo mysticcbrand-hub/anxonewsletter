@@ -355,15 +355,15 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-center mb-4 md:mb-6 lg:mb-8 opacity-0 px-4 md:px-6"
               style={{ animation: 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards' }}
             >
-              Esto no es para
-              <span className="block font-semibold text-primary mt-2 md:mt-3 text-glow">todo el mundo.</span>
+              Tu dosis diaria
+              <span className="block font-semibold text-primary mt-2 md:mt-3 text-glow">de valor.</span>
             </h1>
             
             <p 
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/60 text-center mb-12 md:mb-16 lg:mb-20 font-light leading-relaxed opacity-0 px-4 md:px-6"
               style={{ animation: 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards' }}
             >
-              Tu dosis diaria de valor.
+              Esto no es para todo el mundo.
             </p>
           </>
         )}
