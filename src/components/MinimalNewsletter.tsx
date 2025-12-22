@@ -360,12 +360,12 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
             </h1>
             
             <p 
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/60 text-center mb-12 md:mb-16 lg:mb-20 font-light leading-relaxed opacity-0 px-4 md:px-6"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/60 text-center mb-8 md:mb-10 lg:mb-12 font-light leading-snug opacity-0 px-4 md:px-6"
               style={{ animation: 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards' }}
             >
               Motivación, hábitos y técnicas
-              <span className="block mt-1 md:mt-2">que me ayudaron a invocar mi vida ideal,</span>
-              <span className="block mt-1 md:mt-2">directo a tu inbox.</span>
+              <span className="block mt-0.5 md:mt-1">que me ayudaron a invocar mi vida ideal,</span>
+              <span className="block mt-0.5 md:mt-1">directo a tu inbox.</span>
             </p>
           </>
         )}
