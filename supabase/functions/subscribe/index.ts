@@ -214,17 +214,24 @@ serve(async (req: Request): Promise<Response> => {
       // Log detailed error server-side only
       console.error("MailerLite API error:", response.status, JSON.stringify(data));
       console.error("Sent data:", JSON.stringify(subscriberData));
+      console.error("Response headers:", JSON.stringify(Object.fromEntries(response.headers.entries())));
       
-      // Return generic message to client
+      // Return generic message to client, but include more details for debugging
       if (response.status === 422 || response.status === 409 || data.message?.includes("already exists")) {
         return new Response(
-          JSON.stringify({ error: ERROR_MESSAGES.ALREADY_SUBSCRIBED }),
+          JSON.stringify({ 
+            error: ERROR_MESSAGES.ALREADY_SUBSCRIBED,
+            debug: { status: response.status, message: data.message }
+          }),
           { status: 409, headers: { "Content-Type": "application/json", ...corsHeaders } }
         );
       }
       
       return new Response(
-        JSON.stringify({ error: ERROR_MESSAGES.SERVER_ERROR }),
+        JSON.stringify({ 
+          error: ERROR_MESSAGES.SERVER_ERROR,
+          debug: { status: response.status, message: data.message }
+        }),
         { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
