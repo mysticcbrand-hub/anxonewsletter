@@ -214,6 +214,22 @@
     animation: float 25s ease-in-out infinite reverse;
   }
 
+  .animate-float-slow {
+    animation: float-slow 30s ease-in-out infinite;
+  }
+
+  .animate-float-reverse-slow {
+    animation: float-reverse-slow 35s ease-in-out infinite;
+  }
+
+  .animate-drift-slow {
+    animation: drift-slow 40s ease-in-out infinite;
+  }
+
+  .animate-gradient-shift {
+    animation: gradient-shift 20s ease-in-out infinite;
+  }
+
   /* Exit Intent Popup Animations */
   .animate-exitPopupFade {
     animation: exitPopupFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -326,5 +342,53 @@
   }
   60% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -40px) scale(1.08);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.92);
+  }
+}
+
+@keyframes float-reverse-slow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 40px) scale(0.92);
+  }
+  66% {
+    transform: translate(30px, -30px) scale(1.08);
+  }
+}
+
+@keyframes drift-slow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-48%, -52%) scale(1.15);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    filter: hue-rotate(5deg) brightness(1.1);
+  }
+  50% {
+    filter: hue-rotate(10deg) brightness(1.05);
+  }
+  75% {
+    filter: hue-rotate(5deg) brightness(1.1);
   }
 }
