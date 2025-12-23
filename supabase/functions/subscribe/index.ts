@@ -189,9 +189,8 @@ serve(async (req: Request): Promise<Response> => {
     
     console.log(`Subscribing email: ${sanitizedEmail.substring(0, 3)}***`);
 
-    const subscriberData: { email: string; groups?: string[]; status?: string; fields?: { name: string } } = {
+    const subscriberData: { email: string; groups?: string[]; fields?: { name: string } } = {
       email: sanitizedEmail,
-      status: "unconfirmed", // Double opt-in: requires email confirmation
     };
     
     // Add sanitized name if provided
