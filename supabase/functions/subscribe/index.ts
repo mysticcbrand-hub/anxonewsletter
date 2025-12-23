@@ -184,12 +184,11 @@ serve(async (req: Request): Promise<Response> => {
       );
     }
 
-    const groupId = Deno.env.get("MAILERLITE_GROUP_ID");
     const sanitizedEmail = email.trim().toLowerCase();
     
     console.log(`Subscribing email: ${sanitizedEmail.substring(0, 3)}***`);
 
-    const subscriberData: { email: string; groups?: string[]; fields?: { name: string } } = {
+    const subscriberData: { email: string; fields?: { name: string } } = {
       email: sanitizedEmail,
     };
     
@@ -197,10 +196,6 @@ serve(async (req: Request): Promise<Response> => {
     if (nameValidation.sanitized) {
       subscriberData.fields = { name: nameValidation.sanitized };
       console.log(`With name: ${nameValidation.sanitized.substring(0, 2)}***`);
-    }
-    
-    if (groupId) {
-      subscriberData.groups = [groupId];
     }
 
     const response = await fetch("https://connect.mailerlite.com/api/subscribers", {
@@ -218,6 +213,7 @@ serve(async (req: Request): Promise<Response> => {
     if (!response.ok) {
       // Log detailed error server-side only
       console.error("MailerLite API error:", response.status, JSON.stringify(data));
+      console.error("Sent data:", JSON.stringify(subscriberData));
       
       // Return generic message to client
       if (response.status === 422 || response.status === 409 || data.message?.includes("already exists")) {
