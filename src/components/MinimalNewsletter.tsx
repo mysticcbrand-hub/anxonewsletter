@@ -385,12 +385,12 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                   onChange={(e) => { setEmail(e.target.value); setError(''); }}
                   onKeyDown={(e) => e.key === 'Enter' && handleEmailContinue()}
                   placeholder="tu@email.com"
-                  className={`flex-1 min-w-0 px-5 md:px-6 lg:px-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border ${error ? 'border-destructive/40' : 'border-foreground/10'} focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-base lg:text-lg`}
+                  className={`flex-1 min-w-0 px-5 md:px-6 lg:px-7 py-3.5 md:py-4 lg:py-5 rounded-3xl bg-foreground/[0.05] backdrop-blur-xl border ${error ? 'border-destructive/40' : 'border-foreground/10'} focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-base lg:text-lg`}
                 />
                 <button
                   type="button"
                   onClick={handleEmailContinue}
-                  className="px-6 md:px-8 lg:px-10 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] transition-all duration-300 whitespace-nowrap text-base lg:text-lg"
+                  className="px-6 md:px-8 lg:px-10 py-3.5 md:py-4 lg:py-5 rounded-3xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] transition-all duration-300 whitespace-nowrap text-base lg:text-lg"
                 >
                   Siguiente
                 </button>
@@ -408,7 +408,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
             <form onSubmit={handleSubmit} className="max-w-lg lg:max-w-xl mx-auto px-2 animate-fade-in">
               <div className="space-y-3 lg:space-y-4">
                 {/* Email (solo lectura) */}
-                <div className="px-5 md:px-6 lg:px-7 py-3 md:py-3.5 lg:py-4 rounded-2xl bg-foreground/[0.03] border border-foreground/5 text-foreground/50 text-base lg:text-lg">
+                <div className="px-5 md:px-6 lg:px-7 py-3 md:py-3.5 lg:py-4 rounded-3xl bg-foreground/[0.03] border border-foreground/5 text-foreground/50 text-base lg:text-lg">
                   {email}
                 </div>
                 
@@ -421,7 +421,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                     onChange={(e) => { setName(e.target.value); setError(''); }}
                     placeholder="Tu nombre"
                     maxLength={100}
-                    className="w-full pl-11 lg:pl-14 pr-5 md:pr-6 lg:pr-7 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-base lg:text-lg"
+                    className="w-full pl-11 lg:pl-14 pr-5 md:pr-6 lg:pr-7 py-3.5 md:py-4 lg:py-5 rounded-3xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 focus:bg-foreground/[0.08] focus:border-primary/40 focus:outline-none text-foreground placeholder:text-foreground/30 transition-all duration-300 text-base lg:text-lg"
                   />
                 </div>
                 
@@ -469,7 +469,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                 <button
                   type="submit"
                   disabled={loading || !acceptedPrivacy}
-                  className="w-full px-6 md:px-8 lg:px-10 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 text-sm md:text-base lg:text-lg"
+                  className="w-full px-6 md:px-8 lg:px-10 py-3.5 md:py-4 lg:py-5 rounded-3xl bg-primary text-primary-foreground font-semibold btn-glow hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 text-sm md:text-base lg:text-lg"
                 >
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">
@@ -519,7 +519,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                   setEmail('');
                   setError('');
                 }}
-                className="group mx-auto px-8 md:px-10 lg:px-12 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-[#1a1a1a]/80 backdrop-blur-[40px] border border-white/20 hover:border-white/30 text-white/90 hover:text-white font-medium transition-all duration-300 opacity-0 hover:scale-[1.02] shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] text-sm md:text-base lg:text-lg"
+                className="group mx-auto px-8 md:px-10 lg:px-12 py-3.5 md:py-4 lg:py-5 rounded-3xl bg-[#1a1a1a]/80 backdrop-blur-[40px] border border-white/20 hover:border-white/30 text-white/90 hover:text-white font-medium transition-all duration-300 opacity-0 hover:scale-[1.02] shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] text-sm md:text-base lg:text-lg"
                 style={{ 
                   animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards',
                   WebkitBackdropFilter: 'blur(40px)'
@@ -563,7 +563,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               
               {/* Countdown Timer */}
               <div 
-                className="inline-flex items-center gap-2 lg:gap-3 px-5 md:px-6 lg:px-7 py-3 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.03] backdrop-blur-xl border border-foreground/[0.08] mb-8 md:mb-10 lg:mb-12 opacity-0"
+                className="inline-flex items-center gap-2 lg:gap-3 px-5 md:px-6 lg:px-7 py-3 md:py-4 lg:py-5 rounded-3xl bg-foreground/[0.03] backdrop-blur-xl border border-foreground/[0.08] mb-8 md:mb-10 lg:mb-12 opacity-0"
                 style={{ animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards' }}
               >
                 <Clock className={`w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 ${countdown <= 60 ? 'text-destructive' : 'text-primary'}`} />
@@ -575,7 +575,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
               <button
                 onClick={handleContinueToSetup}
-                className="px-8 md:px-10 lg:px-12 py-3.5 md:py-4 lg:py-5 rounded-2xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 hover:bg-foreground/[0.08] hover:border-primary/30 text-foreground font-medium transition-all duration-300 opacity-0 flex items-center gap-2 mx-auto text-sm md:text-base lg:text-lg"
+                className="px-8 md:px-10 lg:px-12 py-3.5 md:py-4 lg:py-5 rounded-3xl bg-foreground/[0.05] backdrop-blur-xl border border-foreground/10 hover:bg-foreground/[0.08] hover:border-primary/30 text-foreground font-medium transition-all duration-300 opacity-0 flex items-center gap-2 mx-auto text-sm md:text-base lg:text-lg"
                 style={{ animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.75s forwards' }}
               >
                 Continuar
@@ -636,7 +636,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
                 <div className="space-y-4 md:space-y-5 lg:space-y-6">
                   {/* Check 1 */}
                   <label 
-                    className={`flex items-start gap-4 md:gap-5 lg:gap-6 p-5 md:p-6 lg:p-7 rounded-2xl border transition-all duration-300 cursor-pointer ${
+                    className={`flex items-start gap-4 md:gap-5 lg:gap-6 p-5 md:p-6 lg:p-7 rounded-3xl border transition-all duration-300 cursor-pointer ${
                       setupChecks.filter 
                         ? 'bg-primary/5 border-primary/20 shadow-sm shadow-primary/5' 
                         : 'bg-foreground/[0.01] border-foreground/[0.05] hover:bg-foreground/[0.03] hover:border-foreground/[0.1]'
@@ -669,7 +669,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
 
                   {/* Check 2 */}
                   <label 
-                    className={`flex items-start gap-4 md:gap-5 lg:gap-6 p-5 md:p-6 lg:p-7 rounded-2xl border transition-all duration-300 cursor-pointer ${
+                    className={`flex items-start gap-4 md:gap-5 lg:gap-6 p-5 md:p-6 lg:p-7 rounded-3xl border transition-all duration-300 cursor-pointer ${
                       setupChecks.primary 
                         ? 'bg-primary/5 border-primary/20 shadow-sm shadow-primary/5' 
                         : 'bg-foreground/[0.01] border-foreground/[0.05] hover:bg-foreground/[0.03] hover:border-foreground/[0.1]'
@@ -706,7 +706,7 @@ const MinimalNewsletter = ({ onStepChange }: MinimalNewsletterProps = {}) => {
               <button
                 onClick={handleCompleteSetup}
                 disabled={!allChecksCompleted}
-                className={`w-full px-8 md:px-10 lg:px-12 py-4 md:py-5 lg:py-6 rounded-2xl font-medium transition-all duration-500 flex items-center justify-center gap-2 lg:gap-3 opacity-0 text-sm md:text-base lg:text-lg ${
+                className={`w-full px-8 md:px-10 lg:px-12 py-4 md:py-5 lg:py-6 rounded-3xl font-medium transition-all duration-500 flex items-center justify-center gap-2 lg:gap-3 opacity-0 text-sm md:text-base lg:text-lg ${
                   allChecksCompleted
                     ? 'bg-primary text-primary-foreground btn-glow hover:scale-[1.02] shadow-lg shadow-primary/20'
                     : 'bg-foreground/[0.03] text-foreground/25 cursor-not-allowed border border-foreground/[0.06]'

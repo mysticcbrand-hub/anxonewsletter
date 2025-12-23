@@ -205,7 +205,7 @@ const ExitIntentPopup = ({ currentStep = 'email' }: ExitIntentPopupProps) => {
       
       {/* Modal - Premium glassmorphism menos transparente + posicionado */}
       <div 
-        className="absolute max-w-[380px] w-[90vw] bg-[#1a1a1a]/95 backdrop-blur-[40px] rounded-[28px] border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.5),0_32px_80px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.15),inset_0_0_80px_rgba(255,255,255,0.03)] p-8 animate-exitPopupScale"
+        className="absolute max-w-[380px] w-[90vw] bg-[#1a1a1a]/95 backdrop-blur-[40px] rounded-[32px] border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.5),0_32px_80px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.15),inset_0_0_80px_rgba(255,255,255,0.03)] p-8 animate-exitPopupScale"
         style={calculatePopupStyle()}
       >
         {/* Botón cerrar - más sutil y premium */}
@@ -238,7 +238,7 @@ const ExitIntentPopup = ({ currentStep = 'email' }: ExitIntentPopupProps) => {
           {/* Botón primario - CTA fuerte */}
           <button
             onClick={handleStay}
-            className="group relative w-full px-6 py-3.5 rounded-[18px] bg-gradient-to-b from-[#FFD60A] to-[#FFCC00] text-black font-semibold text-[15px] hover:shadow-[0_0_40px_rgba(255,214,10,0.5),0_8px_24px_rgba(255,214,10,0.3)] transition-all duration-300 overflow-hidden"
+            className="group relative w-full px-6 py-3.5 rounded-[24px] bg-gradient-to-b from-[#FFD60A] to-[#FFCC00] text-black font-semibold text-[15px] hover:shadow-[0_0_40px_rgba(255,214,10,0.5),0_8px_24px_rgba(255,214,10,0.3)] transition-all duration-300 overflow-hidden"
           >
             {/* Shine effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
@@ -248,7 +248,7 @@ const ExitIntentPopup = ({ currentStep = 'email' }: ExitIntentPopupProps) => {
           {/* Botón secundario - Glassmorphism sutil */}
           <button
             onClick={handleLeave}
-            className="w-full px-6 py-3 rounded-[16px] bg-white/[0.08] hover:bg-white/[0.12] border border-white/20 text-white/60 hover:text-white/80 transition-all duration-300 text-[14px] font-medium backdrop-blur-xl"
+            className="w-full px-6 py-3 rounded-[20px] bg-white/[0.08] hover:bg-white/[0.12] border border-white/20 text-white/60 hover:text-white/80 transition-all duration-300 text-[14px] font-medium backdrop-blur-xl"
           >
             No estoy seguro
           </button>
