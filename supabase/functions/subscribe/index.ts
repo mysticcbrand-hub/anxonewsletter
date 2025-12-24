@@ -184,13 +184,20 @@ serve(async (req: Request): Promise<Response> => {
       );
     }
 
+    const groupId = Deno.env.get("MAILERLITE_GROUP_ID");
     const sanitizedEmail = email.trim().toLowerCase();
     
     console.log(`Subscribing email: ${sanitizedEmail.substring(0, 3)}***`);
 
-    const subscriberData: { email: string; fields?: { name: string } } = {
+    const subscriberData: { email: string; groups?: string[]; fields?: { name: string } } = {
       email: sanitizedEmail,
     };
+    
+    // Add group if configured
+    if (groupId) {
+      subscriberData.groups = [groupId];
+      console.log(`Adding to group: ${groupId}`);
+    }
     
     // Add sanitized name if provided
     if (nameValidation.sanitized) {
