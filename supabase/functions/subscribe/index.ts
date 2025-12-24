@@ -184,7 +184,7 @@ serve(async (req: Request): Promise<Response> => {
       );
     }
 
-    const groupId = Deno.env.get("MAILERLITE_GROUP_ID");
+    const groupId = Deno.env.get("MAILERLITE_GROUP_ID") || "174690786914338270";
     const sanitizedEmail = email.trim().toLowerCase();
     
     console.log(`Subscribing email: ${sanitizedEmail.substring(0, 3)}***`);
